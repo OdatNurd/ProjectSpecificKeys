@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"keys": [
+	    {
+	        "keys": ["super+t"], "command": "echo", "args": {
+	            "project": "Project Specific"
+	        }
+	    },
+	],
+}
