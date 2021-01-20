@@ -5,6 +5,13 @@ import os
 import json
 
 
+_platform_name = {
+    'osx': 'OSX',
+    'windows': 'Windows',
+    'linux': 'Linux',
+}[sublime.platform()]
+
+
 def plugin_loaded():
     """
     When the plugin loads,  make sure that there's a folder for storing the
@@ -65,24 +72,20 @@ class ProjectSpecificEventListener(sublime_plugin.EventListener):
 
         keymap = []
         for key in keys:
-            keymap.append(add_context(key, project))
+            platform = key.pop("platform", None)
+            if platform != '!' + _platform_name or platform == _platform_name:
+                keymap.append(add_context(key, project))
 
         try:
             folder = os.path.join(keymap_dir(), project)
             if not os.path.isdir(folder):
                 os.mkdir(folder)
 
-            # filename = "Default.sublime-keymap"
-            filename = {
-                "osx": "Default (OSX).sublime-keymap",
-                "windows": "Default (Windows).sublime-keymap",
-                "linux": "Default (Linux).sublime-keymap"
-            }[sublime.platform()]
-
+            filename = "Default (%s).sublime-keymap" % _platform_name
             filename = os.path.join(folder, filename)
             with open(filename, "w") as file:
                 file.write(json.dumps(keymap, indent=4))
 
         except Exception as e:
-            sublime.status_message("Well that went poorly")
+            sublime.status_message("Error generating project specific bindings")
             raise e

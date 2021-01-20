@@ -6,10 +6,11 @@
 		}
 	],
 	"keys": [
-	    {
-	        "keys": ["super+t"], "command": "echo", "args": {
-	            "project": "Project Specific"
-	        }
-	    },
+		{
+			"platform": "Linux",
+			"keys": ["super+t"], "command": "echo", "args": {
+				"project": "Project Specific"
+			}
+		},
 	],
 }
