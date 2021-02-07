@@ -37,18 +37,6 @@ window where the project file is loaded. This could also be used in general
 outside of this package (for example in Sublime Text 3) if you wanted to
 manually create your key bindings instead.
 
-This package is still a proof of concept, so while this works, there are other
-things that need to be added to it to make it more functional for the masses.
-For example:
-
-* Key binding files are created, but never cleaned up. Some mechanism to get
-  rid of files would probably be a good thing
-
-* Key bindings are always specific to the current platform. If you use Sublime
-  across multiple platforms, you might want to have platform specific key
-  bindings. The live stream replay linked above shows some examples of what this
-  might look like, but it has not been implemented yet.
-
 This requires a build of Sublime Text >= 4050 (possibly higher; but basically
 this will not work in Sublime Text 3) due to using some new API endpoints not
 available in older versions.
