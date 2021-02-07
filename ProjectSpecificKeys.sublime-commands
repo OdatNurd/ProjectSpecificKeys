@@ -1,0 +1,11 @@
+[
+  { "caption": "ProjectSpecificKeys: Project Key Bindings",
+    "command": "edit_project_key_bindings",
+  },
+  { "caption": "ProjectSpecificKeys: Open README",
+    "command": "open_file",
+    "args": {
+      "file": "${packages}/ProjectSpecificKeys/README.md"
+    }
+  },
+]

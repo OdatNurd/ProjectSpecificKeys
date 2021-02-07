@@ -130,6 +130,18 @@ def apply_keymaps(window):
         raise e
 
 
+class EditProjectKeyBindingsCommand(sublime_plugin.ApplicationCommand):
+    def run(self):
+        sublime.run_command("edit_settings", {
+            "base_file": "${packages}/Default/Default ($platform).sublime-keymap",
+            "user_file": sublime.active_window().project_file_name()
+            })
+
+    def is_enabled(self):
+        window = sublime.active_window()
+        return window and project_name(window) is not None
+
+
 class ProjectSpecificEventListener(sublime_plugin.EventListener):
     def on_query_context(self, view, key, operator, operand, match_all):
         if key != "project":
