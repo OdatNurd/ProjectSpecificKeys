@@ -1,0 +1,13 @@
+ProjectSpecificKeys
+    Set up key bindings that only apply in specific projects
+
+https://github.com/OdatNurd/ProjectSpecificKeys
+
+This package allows you to add key bindings to a sublime-project file in
+order to have those bindings available only within that particular
+project. Bindings made this way will override the default key bindings,
+but only within windows that have the project loaded.
+
+For more information on how to set up your key bindings, please view the
+documentation by selecting "ProjectSpecificKeys: Open README" from the
+command palette.
